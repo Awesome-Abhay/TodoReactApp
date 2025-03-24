@@ -141,7 +141,7 @@ function App() {
     <>
       <Navbar />
 
-      <div className="md:container md:mx-auto md:mt-10 bg-violet-200 min-h-[85vh] md:w-1/2 p-3 relative">
+      <div className="md:container md:mx-auto md:mt-10 bg-violet-200 min-h-[85vh] md:w-1/2 p-3 pb-1 relative">
         <h1 className='text-center text-2xl font-medium'>iTask - Manage your todos at one place</h1>
 
         <div className='font-medium text-xl my-5'>Add a Todo</div>
@@ -174,7 +174,7 @@ function App() {
 
         <h1 className='font-bold text-xl'>Your Todos</h1>
 
-        <div className="todos w-full overflow-y-auto h-1/2 mt-5 gap-5 flex flex-col px-2 pt-2">
+        <div className="todos w-full overflow-y-auto h-[40vh] mt-5 gap-5 flex flex-col px-2 py-2">
 
           {
             finishedCheck?(
@@ -204,7 +204,7 @@ function App() {
 
         </div>
 
-        <div className="functionalities w-full p-3 bg-transparent absolute bottom-0 left-0 flex justify-center gap-8">
+        <div className="functionalities w-full p-3 bg-transparent flex justify-center gap-8 mt-5">
           <button
            onClick={handleDeleteFinished}
            className='text-white bg-violet-800 font-medium p-2 rounded-2xl cursor-pointer'>Delete Finished</button>
