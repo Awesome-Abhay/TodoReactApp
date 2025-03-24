@@ -141,7 +141,7 @@ function App() {
     <>
       <Navbar />
 
-      <div className="md:container md:mx-auto md:mt-10 bg-violet-200 min-h-[88vh] md:w-1/2 p-3 pb-1 relative">
+      <div className="md:container md:mx-auto md:mt-10 bg-violet-200 min-h-[88vh] md:w-1/2 md:p-3 pb-1 relative">
         <h1 className='text-center text-2xl font-medium'>iTask - Manage your todos at one place</h1>
 
         <div className='font-medium text-xl my-5'>Add a Todo</div>
