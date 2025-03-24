@@ -174,7 +174,7 @@ function App() {
 
         <h1 className='font-bold text-xl'>Your Todos</h1>
 
-        <div className="todos w-full overflow-y-auto h-[40vh] mt-5 gap-5 flex flex-col px-2 py-2">
+        <div className="todos w-full overflow-y-auto h-[30vh] md:h-[40vh] mt-5 gap-5 flex flex-col px-2 py-2">
 
           {
             finishedCheck?(
@@ -200,6 +200,10 @@ function App() {
               ))
             )
             
+
+          }
+          {
+            todos.length==0 && <div className='text-center text-2xl text-gray-500'> Nothing to Show... </div>
           }
 
         </div>
