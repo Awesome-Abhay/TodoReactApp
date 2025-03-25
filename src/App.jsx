@@ -20,13 +20,13 @@ function App() {
   const [finishedCheck, setfinishedCheck] = useState(false)
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState(getInitialTodos());
+  const [editTodo, seteditTodo] = useState({});
   
 
   function haveFocus(){
     inputRef.current.focus();
   }
 
-  
 
   useEffect(() => {
     haveFocus();
@@ -59,12 +59,20 @@ function App() {
 
 
   let handleSave = () => {
-    let tempTodo={
-      id:uuidv4(),
-      todo,
-      isChecked: false
+    if(editTodo.id){
+      let index= todos.findIndex(item=>item.id === editTodo.id);
+      todos[index].todo=todo;
+      let newTodos= [...todos];
+      setTodos(newTodos);
+      seteditTodo({});
+    }else{ 
+      let tempTodo={
+        id: uuidv4(),
+        todo,
+        isChecked: false
+      }
+      setTodos([...todos,tempTodo])
     }
-    setTodos([...todos,tempTodo])
     setTodo("")
   }
 
@@ -130,9 +138,7 @@ function App() {
     })
     console.log(t)
     setTodo(t[0].todo);
-
-    handleDelete(e);
-
+    seteditTodo(t[0]);
     haveFocus();
     
   }
