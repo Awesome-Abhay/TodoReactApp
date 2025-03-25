@@ -51,7 +51,6 @@ function App() {
 
   useEffect(() => {
     
-    lastTodoRef.current?.scrollIntoView({behavior:'smooth'}, 100);
     saveTodosLS();
     
   }, [todos])
@@ -72,6 +71,9 @@ function App() {
         isChecked: false
       }
       setTodos([...todos,tempTodo])
+      setTimeout(() => {
+        lastTodoRef.current?.scrollIntoView({behavior:'smooth'}, 100);
+      }, 100);
     }
     setTodo("")
   }
