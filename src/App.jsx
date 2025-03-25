@@ -15,19 +15,19 @@ let getInitialTodos= () => {
 
 function App() {
 
-  const inputRef = useRef();
-  const lastTodoRef= useRef(null);
-  const [finishedCheck, setfinishedCheck] = useState(false)
-  const [todo, setTodo] = useState("");
-  const [todos, setTodos] = useState(getInitialTodos());
-  const [editTodo, seteditTodo] = useState({});
+  const inputRef = useRef();        // To refer the input tag through which we add tasks.
+  const lastTodoRef= useRef(null);  // To scrollintoview the last todo which is added.
+  const [finishedCheck, setfinishedCheck] = useState(false)  // To show tasks which are finished.
+  const [todo, setTodo] = useState("");  // todo which is begin written on input tag.
+  const [todos, setTodos] = useState(getInitialTodos());  // storing all todos 
+  const [editTodo, seteditTodo] = useState({});  // todo which is under editing.
   
 
   function haveFocus(){
     inputRef.current.focus();
   }
 
-
+// This will run on very first render to display all todos.
   useEffect(() => {
     haveFocus();
     let todoString= localStorage.getItem("todos");
@@ -136,7 +136,6 @@ function App() {
     let t= todos.filter((item)=>{
       return item.id===e.name;
     })
-    console.log(t)
     setTodo(t[0].todo);
     seteditTodo(t[0]);
     haveFocus();
@@ -213,6 +212,8 @@ function App() {
           }
 
         </div>
+
+        
 
         <div className="functionalities w-full p-3 bg-transparent flex justify-center gap-8 mt-5">
           <button
